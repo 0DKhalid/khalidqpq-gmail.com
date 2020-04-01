@@ -1,0 +1,11 @@
+.global {
+  text-align: center;
+  margin-top: 8rem;
+}
+
+.global .container {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-around;
+  padding-top: 3rem;
+}

@@ -3,11 +3,20 @@ import { PolygonSeries } from './PolygonSeries';
 import { MeaselsSeries } from './MeaselsSeries';
 import { MapData } from './MapData';
 
+const chartReg = {};
 export function buildMap(element, data) {
+  if (!element) {
+    return;
+  }
+
   //init a and create map
   const initMap = new MapChart(element);
+  //dispose old chart before render a new one
+  maybeDisposeChart(element);
   initMap.createMap();
 
+  //refrence to old chart
+  chartReg[element] = initMap.chart;
   //define map porjection
   initMap.mapProjection('rotateLongLat', 20, 20, 20, 20);
 
@@ -42,4 +51,11 @@ export function buildMap(element, data) {
   // '#B30000',
   const mapData = new MapData(polygonSeries, measelsSeries);
   mapData.mapDataToMap(data);
+}
+
+function maybeDisposeChart(chartdiv) {
+  if (chartReg[chartdiv]) {
+    chartReg[chartdiv].dispose();
+    delete chartReg[chartdiv];
+  }
 }

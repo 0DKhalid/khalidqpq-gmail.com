@@ -3,6 +3,7 @@
 :root {
   --bg-color: #1c1c1f;
   --primary-color: #e5e5e5;
+  --primary-red: #b30000;
 }
 
 * {
