@@ -19,15 +19,15 @@
 .number-circle {
   display: inline-block;
   border-radius: 50%;
-  width: 9rem;
-  height: 9rem;
+  width: 10rem;
+  height: 10rem;
   padding: 1.5rem;
-  padding-top: 3rem;
+  padding-top: 3.5rem;
 
   color: #666;
   text-align: center;
 
-  font: 2.5rem Arial, sans-serif;
+  font: 2rem Arial, sans-serif;
 }
 
 .confirmed {
@@ -51,6 +51,6 @@
   }
 
   .number-circle {
-    padding-top: 3rem;
+    padding-top: 3.5rem;
   }
 }
