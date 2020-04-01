@@ -3,7 +3,7 @@
   top: 0;
   right: 0;
   width: 100%;
-  background-color: inherit;
+  background-color: var(--bg-color);
   height: 4rem;
   z-index: 100;
 }

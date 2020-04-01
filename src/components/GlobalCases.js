@@ -9,15 +9,15 @@ export default () => {
       <div className='container'>
         <div>
           <h2>الحالات المسجلة</h2>
-          <div>1000</div>
+          <div className='number-circle confirmed'>1000</div>
         </div>
         <div>
           <h2>حالات التعافي</h2>
-          <div>1000</div>
+          <div className='number-circle recovered'>1000</div>
         </div>
         <div>
           <h2>حالات الوفاة</h2>
-          <div>1000</div>
+          <div className='number-circle deaths'>1000</div>
         </div>
       </div>
     </section>

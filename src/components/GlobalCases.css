@@ -1,6 +1,6 @@
 .global {
   text-align: center;
-  margin-top: 8rem;
+  margin-top: 9rem;
 }
 
 .global .container {
@@ -8,4 +8,49 @@
   flex-direction: row-reverse;
   justify-content: space-around;
   padding-top: 3rem;
+  align-items: center;
+}
+
+.global .container h2 {
+  font-size: 2rem;
+  font-weight: 200;
+}
+
+.number-circle {
+  display: inline-block;
+  border-radius: 50%;
+  width: 9rem;
+  height: 9rem;
+  padding: 1.5rem;
+  padding-top: 3rem;
+
+  color: #666;
+  text-align: center;
+
+  font: 2.5rem Arial, sans-serif;
+}
+
+.confirmed {
+  border: 2px solid #fe5e51;
+}
+
+.recovered {
+  border: 2px solid #4ca64c;
+}
+
+.deaths {
+  border: 2px solid var(--primary-red);
+}
+
+@media (max-width: 655px) {
+  .global .container {
+    flex-direction: column;
+  }
+  .global .container div h2 {
+    padding-top: 2rem;
+  }
+
+  .number-circle {
+    padding-top: 3rem;
+  }
 }
