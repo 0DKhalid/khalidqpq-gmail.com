@@ -8,10 +8,10 @@ import GlobalCases from './components/GlobalCases';
 export default () => (
   <Router>
     <Nav />
-    <Route exact path='/'>
+    <Route exact path={`${process.env.PUBLIC_URL}/`}>
       <Map />
     </Route>
-    <Route exact path='/global'>
+    <Route exact path={`${process.env.PUBLIC_URL}/global`}>
       <GlobalCases />
     </Route>
   </Router>

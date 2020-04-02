@@ -13,11 +13,12 @@ export default () => {
   const [loading, setIsloading] = useState(true);
   const [error, setError] = useState('');
   const [countryName, setCountryName] = useState('');
+
   useEffect(() => {
     (async () => {
       try {
         setIsloading(true);
-        const response = await fetch('https://covid19.mathdro.id/api');
+        const response = await fetch(process.env.REACT_APP_API_URL);
         const data = await response.json();
         setConirmed(data.confirmed.value);
         setRecovered(data.recovered.value);
@@ -41,7 +42,7 @@ export default () => {
     setIsloading(true);
     try {
       const response = await fetch(
-        `https://covid19.mathdro.id/api/countries/${countryCode}`
+        `${process.env.REACT_APP_API_URL}/countries/${countryCode}`
       );
       const data = await response.json();
       setConirmed(data.confirmed.value);
@@ -105,7 +106,7 @@ export default () => {
       </section>
       <footer>
         {' '}
-        <a href='https://github.com/0DKhalid'> &copy; Khalid Ayed </a>
+        <a href='https://github.com/0DKhalid'>&copy;Khalid Ayed</a>
         <div>
           Icons made by{' '}
           <a href='https://www.flaticon.com/authors/freepik' title='Freepik'>

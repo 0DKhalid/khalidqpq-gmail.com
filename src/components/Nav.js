@@ -17,12 +17,12 @@ export default () => {
     <nav className={`navbar ${shadow}`}>
       <ul>
         <li>
-          <NavLink exact to='/'>
+          <NavLink exact to={`${process.env.PUBLIC_URL}/`}>
             الخريطة
           </NavLink>
         </li>
         <li>
-          <NavLink exact to='/global'>
+          <NavLink exact to={`${process.env.PUBLIC_URL}/global`}>
             حول العالم
           </NavLink>
         </li>

@@ -43,7 +43,7 @@ export default () => {
       }
 
       const data = await getCountriesCases(
-        'https://covid19.mathdro.id/api/countries'
+        `${process.env.REACT_APP_API_URL}/countries`
       );
       setIsLoading(false);
       buildMap(mapEl.current, data);
