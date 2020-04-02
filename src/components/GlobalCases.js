@@ -2,8 +2,9 @@ import React, { useEffect, useState, Fragment } from 'react';
 import CountUp from '../components/UIElements/CountUp';
 import Spinner from './UIElements/Spinner';
 import globalIcon from '../assets/img/screen.svg';
-import './GlobalCases.css';
 import CountryCases from './CountryCases';
+import countries from '../util/countriesCode';
+import './GlobalCases.css';
 
 export default () => {
   const [confirmed, setConirmed] = useState(0);
@@ -11,9 +12,11 @@ export default () => {
   const [deaths, setDeaths] = useState(0);
   const [loading, setIsloading] = useState(true);
   const [error, setError] = useState('');
+  const [countryName, setCountryName] = useState('');
   useEffect(() => {
     (async () => {
       try {
+        setIsloading(true);
         const response = await fetch('https://covid19.mathdro.id/api');
         const data = await response.json();
         setConirmed(data.confirmed.value);
@@ -26,9 +29,38 @@ export default () => {
     })();
   }, []);
 
+  const countryCodeToName = countryCode => {
+    const countryName = countries[countryCode]
+      .toLowerCase()
+      .replace(/\s/g, '-');
+    setCountryName(countryName);
+  };
+
+  const onSelectCountry = async countryCode => {
+    countryCodeToName(countryCode);
+    setIsloading(true);
+    try {
+      const response = await fetch(
+        `https://covid19.mathdro.id/api/countries/${countryCode}`
+      );
+      const data = await response.json();
+      setConirmed(data.confirmed.value);
+      setRecovered(data.recovered.value);
+      setDeaths(data.deaths.value);
+      setIsloading(false);
+      setError('');
+    } catch {
+      setError('لا توجد بيانات');
+    }
+  };
+
   let content;
   if (error) {
-    content = <h1 className='deaths'>{error}</h1>;
+    content = (
+      <h1 className='deaths' style={{ fontSize: '2rem', marginBottom: '8rem' }}>
+        {error}
+      </h1>
+    );
   } else if (loading) {
     content = <Spinner margin='5rem' />;
   } else {
@@ -58,11 +90,33 @@ export default () => {
 
   return (
     <Fragment>
-      <CountryCases />
+      <CountryCases onSelect={onSelectCountry} />
       <section className='global'>
-        <img src={globalIcon} alt='global' />
+        <img
+          className={countryName ? 'img-size' : ''}
+          src={
+            countryName
+              ? `https://assets.thebasetrip.com/api/v2/countries/flags/${countryName}.svg`
+              : globalIcon
+          }
+          alt={countryName ? countryName : 'global'}
+        />
         {content}
       </section>
+      <footer>
+        {' '}
+        <a href='https://github.com/0DKhalid'> &copy; Khalid Ayed </a>
+        <div>
+          Icons made by{' '}
+          <a href='https://www.flaticon.com/authors/freepik' title='Freepik'>
+            Freepik
+          </a>{' '}
+          from{' '}
+          <a href='https://www.flaticon.com/' title='Flaticon'>
+            www.flaticon.com
+          </a>
+        </div>
+      </footer>
     </Fragment>
   );
 };

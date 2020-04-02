@@ -5,12 +5,13 @@ import countriesCode from '.././util/countriesCode';
 import 'react-flags-select/css/react-flags-select.css';
 import './CountryCases.css';
 
-export default () => (
+export default ({ onSelect }) => (
   <ReactFlagsSelect
     className='country-select'
     customLabels={countriesCode}
     placeholder='أختر دولة'
     searchable={true}
     searchPlaceholder='أبحث عن بلد'
+    onSelect={onSelect}
   />
 );

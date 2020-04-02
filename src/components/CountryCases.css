@@ -8,6 +8,7 @@
 
 .flag-select__btn {
   color: var(--primary-color);
+  outline: none;
 }
 
 .flag-select__options {

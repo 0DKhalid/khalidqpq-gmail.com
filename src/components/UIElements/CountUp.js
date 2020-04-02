@@ -11,5 +11,5 @@ export default ({ target, speed, start = 0 }) => {
     }
   }, [count, speed, target]);
 
-  return <span>{Math.round(count)}</span>;
+  return <span style={{ position: 'relative' }}>{Math.round(count)}</span>;
 };
