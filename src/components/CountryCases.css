@@ -1,0 +1,16 @@
+.country-select {
+  position: absolute;
+  top: 6rem;
+  right: 2rem;
+  color: #0e0e0f;
+  background-color: #0e0e0f;
+}
+
+.flag-select__btn {
+  color: var(--primary-color);
+}
+
+.flag-select__options {
+  right: -1.5rem;
+  width: 15rem;
+}

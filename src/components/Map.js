@@ -50,5 +50,9 @@ export default () => {
     })();
   }, []);
 
-  return isLoading ? <Spinner /> : <div ref={mapEl} className='Map'></div>;
+  return isLoading ? (
+    <Spinner margin='15rem' />
+  ) : (
+    <div ref={mapEl} className='Map'></div>
+  );
 };

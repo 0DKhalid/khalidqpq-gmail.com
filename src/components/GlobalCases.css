@@ -1,6 +1,6 @@
 .global {
   text-align: center;
-  margin-top: 9rem;
+  margin-top: 12rem;
 }
 
 .global .container {
@@ -20,9 +20,9 @@
   display: inline-block;
   border-radius: 50%;
   width: 10rem;
-  height: 10rem;
+  /* height: 10rem; */
   padding: 1.5rem;
-  padding-top: 3.5rem;
+  border-bottom: 2px solid #666;
 
   color: #666;
   text-align: center;
@@ -31,15 +31,18 @@
 }
 
 .confirmed {
-  border: 2px solid #fe5e51;
+  /* border: 2px solid #fe5e51; */
+  color: #fe5e51;
 }
 
 .recovered {
-  border: 2px solid #4ca64c;
+  /* border: 2px solid #4ca64c; */
+  color: #4ca64c;
 }
 
 .deaths {
-  border: 2px solid var(--primary-red);
+  /* border: 2px solid var(--primary-red); */
+  color: #ff3232;
 }
 
 @media (max-width: 655px) {
@@ -47,10 +50,14 @@
     flex-direction: column;
   }
   .global .container div h2 {
-    padding-top: 2rem;
+    padding-top: 1rem;
+    margin-bottom: 0.5rem;
   }
 
   .number-circle {
-    padding-top: 3.5rem;
+    margin-bottom: 2rem;
+  }
+  .global img {
+    padding-left: 2rem;
   }
 }

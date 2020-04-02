@@ -2,4 +2,8 @@ import React from 'react';
 
 import './Spinner.css';
 
-export default () => <div className='loader'>Loading...</div>;
+export default ({ margin }) => (
+  <div style={{ margin: `${margin} auto` }} className='loader'>
+    Loading...
+  </div>
+);
