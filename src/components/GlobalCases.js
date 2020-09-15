@@ -30,15 +30,15 @@ export default () => {
     })();
   }, []);
 
-  const countryCodeToName = countryCode => {
-    const countryName = countries[countryCode]
-      .toLowerCase()
-      .replace(/\s/g, '-');
+  const countryCodeToName = (countryCode) => {
+    const countryName = countries[countryCode];
     setCountryName(countryName);
   };
 
-  const onSelectCountry = async countryCode => {
+  const onSelectCountry = async (countryCode) => {
     countryCodeToName(countryCode);
+    console.log(countryCode);
+
     setIsloading(true);
     try {
       const response = await fetch(
