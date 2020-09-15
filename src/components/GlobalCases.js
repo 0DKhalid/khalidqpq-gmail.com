@@ -3,7 +3,7 @@ import CountUp from '../components/UIElements/CountUp';
 import Spinner from './UIElements/Spinner';
 import globalIcon from '../assets/img/screen.svg';
 import CountryCases from './CountryCases';
-import countries from '../util/countriesCode';
+import countriesCodeSlag from '../util/countriesCodeSlag';
 import './GlobalCases.css';
 
 export default () => {
@@ -30,14 +30,13 @@ export default () => {
     })();
   }, []);
 
-  const countryCodeToName = (countryCode) => {
-    const countryName = countries[countryCode];
+  const countryCodeToSlag = (countryCode) => {
+    const countryName = countriesCodeSlag[countryCode];
     setCountryName(countryName);
   };
 
   const onSelectCountry = async (countryCode) => {
-    countryCodeToName(countryCode);
-    console.log(countryCode);
+    countryCodeToSlag(countryCode);
 
     setIsloading(true);
     try {
