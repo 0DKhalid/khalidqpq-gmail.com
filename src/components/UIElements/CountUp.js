@@ -5,11 +5,15 @@ export default ({ target, speed, start = 0 }) => {
   useEffect(() => {
     let inc = target / speed;
     if (count < target) {
-      setTimeout(() => setCount(prevCount => prevCount + inc));
+      setTimeout(() => setCount((prevCount) => prevCount + inc));
     } else {
       setCount(target);
     }
   }, [count, speed, target]);
 
-  return <span style={{ position: 'relative' }}>{Math.round(count)}</span>;
+  return (
+    <span style={{ position: 'relative' }}>
+      {Math.round(count).toLocaleString()}
+    </span>
+  );
 };
